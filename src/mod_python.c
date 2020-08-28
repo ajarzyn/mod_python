@@ -2646,7 +2646,7 @@ static void PythonChildInitHandler(apr_pool_t *p, server_rec *s)
 
     /* accordig Py C Docs we must do this after forking */
     PyEval_RestoreThread(global_tstate);
-    PyOS_AfterFork();
+    PyOS_AfterFork_Child();
 
     interpreterdata *idata = save_interpreter(MAIN_INTERPRETER, PyThreadState_Get());
     if (!idata)
